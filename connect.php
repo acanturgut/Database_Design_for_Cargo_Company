@@ -12,6 +12,7 @@ if(!$con){
 	die("Error". mysqli_connect_error());
 }else{
 	echo "connection succed";
+	echo "<br> <hr>";
 }
 
 ?>
