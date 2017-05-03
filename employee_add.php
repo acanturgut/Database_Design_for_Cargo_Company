@@ -36,11 +36,9 @@ echo "<hr>";
 echo $empl_phone_number;
 echo "<hr>";
 
-$sql = "insert into employee values('$empl_password','$empl_user_name', '$empl_email', '$empl_phone_number', NULL);";
-$sql.= "insert into employee_address values('$empl_addr_street', '$empl_addr_district', '$empl_addr_city','$empl_addr_country',NULL);";
-$sql.= "insert into employee_name values('$empl_mid_name', '$empl_mid_name', '$empl_last_name',NULL);";
+$sql = "insert into employee values('$empl_password','$empl_user_name', '$empl_email', '$empl_phone_number', NULL,'$empl_first_name', '$empl_mid_name', '$empl_last_name', '$empl_addr_street', '$empl_addr_district', '$empl_addr_city','$empl_addr_country');";
 
-if(mysqli_multi_query($con,$sql)){ // RUN QUERY ON PHP
+if(mysqli_query($con,$sql)){ // RUN QUERY ON PHP
 
   echo "SUCESS <hr> ";
 	require "admin.php";
