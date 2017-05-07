@@ -16,9 +16,15 @@ if($username == "admin" && $password == "admin"){
 
 }else{
 
-  $sql = 'SELECT password,username FROM employee';
+  echo "123- GIRDI- 123";
+
+  $sql = 'SELECT password, username FROM employee';
+
+  echo "123- GIRDI- 1234";
 
   $result = $con -> query($sql);
+
+  echo "123- GIRDI- 12345";
 
   if ($result->num_rows > 0) {
 
@@ -29,12 +35,14 @@ if($username == "admin" && $password == "admin"){
       if($username == $row['username'] && $password == $row['password']){
 
         echo "GIRDI";
-        //header('Location: employee_account.php?username = ' .$username);
+        header('Location: employee_account.php?username='.$username);
 
         return;
       }
     }
   }else{
+
+
 
     echo "GIRDMEDI";
 

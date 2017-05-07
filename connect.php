@@ -9,8 +9,11 @@ $dp = "group5";
 $con = mysqli_connect($host,$user,$password,$dp);
 
 if(!$con){
+
 	die("Error". mysqli_connect_error());
+
 }else{
+
 	echo "connection succed";
 	echo "<br> <hr>";
 }

@@ -21,7 +21,7 @@
       <ul class="nav navbar-nav">
 
         <li class="active"><a href="#">Home</a></li>
-        <li><a href="#">Create Customer</a></li>
+        <li><a href="employee_create_customer.php?username= <?php ?>">Create Customer</a></li>
         <li><a href="#">Menage Customer</a></li>
         <li><a href="#">Create new shipment</a></li>
         <li><a href="#">Menage Shipment</a></li>
