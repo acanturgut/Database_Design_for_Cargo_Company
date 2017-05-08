@@ -42,8 +42,6 @@ if($username == "admin" && $password == "admin"){
     }
   }else{
 
-
-
     echo "GIRDMEDI";
 
   }

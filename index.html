@@ -1,3 +1,62 @@
+<!--
+
+Main Tasks:
+
+Customers should be able to authenticate themselves as users of the system through a login page, asking for their username and password.
+Customers should be able to query information about their packages via a unique tracking number (e.g. whether it is delivered, the estimated date of arrival, date of shipment, cost, shipment details).
+Customers should be able to view their personal account information (their recorded name –first, middle, and last-, address, phone number, e-mail, shipment history, and shipments that have not delivered yet).
+Customers should be able to view their bills.
+
+Employee:
+
+Employees should be able to authenticate themselves as users of the system through a login page, asking for their username and password.
+Employees should be able to enter the shipment information via a web-page.
+Employees can only see the shipments for which they are the source or the destination of.
+Employees should be able to create accounts for the customers via a web interface.
+Employees can change the status of a shipment by marking them as delivered.
+Employees should be able to generate a bill for each customer. The billing procedure for each customer depends on whether they have a contract or not (contracted: 1 month / regular: current shipment).
+
+System:
+
+You should create employees and stores manually, i.e. not through a web-page.
+The system should automatically calculate the cost of a shipment depending on the package type, weight, content and mode of delivery for each package in the shipment.
+The system should automatically calculate the estimated time of delivery depending on the shipment date and the mode of delivery.
+System should assign a unique tracking number for each shipment, consisting of 9 numbers starting with a nonzero number.
+System should assign a unique ID for each store, employee, and customer.
+
+Constraints:
+
+Both customers and employees will use a common login page. You should differentiate user types through their login information.
+Each user (customer or employee) should have a distinct username.
+Each user should have a valid password which consists of at least 6 alphanumeric characters.
+Each customer is associated with a unique customer ID.
+Some customers can have a contract with the company. In this case, they are billed monthly. Otherwise, customer will pay in the store at the time of shipment.
+Each store has a unique ID.
+Each store has only one employee but each employee is not necessarily associated with a store.
+Each store has one address and may have one or more phone numbers.
+Each employee has a unique ID.
+Each user and employee should have a home address, an e-mail address and a phone number, which cannot be left blank.
+The system should store the addresses as street name, district, city, and country.
+Each shipment/order can contain one or more packages; however, each package belongs to a single shipment.
+Each package has a type (flat, envelope, small box, mid-sized box, large box), content (hazardous, international and normal) and weight. The cost of the package depends on the package type and package content, and the cost of the shipment is the sum of the cost of each package.
+Each shipment has a unique tracking number.
+Each shipment must have the sender and receiver information with source and destination store. Receivers are identified by their name and cell phone number.
+Each sender must be a customer. However, receivers are not necessarily customers.
+
+Queries
+
+Find the customer who has shipped the most packages in the last year.
+Find the customer who has spent the most money on shipping last year.
+Sort the customers with a contract according to the money that they have spent on shipping last year.
+Find the customer that has sent the most hazardous packages.
+Find the store that has received the most hazardous packages.
+Find how frequently each store is used by customers for sending packages. Sort these stores from most to least frequently used store.
+Find the store that has earned the most money from shipping packages.
+Find the cities that ships the most and least number of the packages between April 20, 2013 and May 15, 2013.
+Find the city that has received the most packages.
+
+-->
+
 <!DOCTYPE html>
 <html>
 <head>

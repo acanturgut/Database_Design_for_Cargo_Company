@@ -16,7 +16,7 @@ $empl_phone_number = $_POST["empl_phone_number"];
 
 $sql = "insert into employee values('$empl_password','$empl_user_name', '$empl_email', '$empl_phone_number', NULL,'$empl_first_name', '$empl_mid_name', '$empl_last_name', '$empl_addr_street', '$empl_addr_district', '$empl_addr_city','$empl_addr_country');";
 
-if(mysqli_query($con,$sql)){ // RUN QUERY ON PHP
+if(mysqli_query($con,$sql)){
 
   echo "SUCESS <hr> ";
 	require "admin.php";
