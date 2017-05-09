@@ -1,6 +1,5 @@
 <?php
 
-
 include 'connect.php';
 
 $user_name = $_GET["username"];
@@ -23,14 +22,14 @@ $sql = "insert into employee values('$c_password','$c_user_name', '$c_email', '$
 if(mysqli_query($con,$sql)){
 
   echo "SUCESS <hr> ";
-	require "employee_create_customer.php?=".$user_name;
+  require "employee_create_customer.php?=".$user_name;
 
 }else{
 
   echo "FAIL <hr> ";
   echo("Error description: " . mysqli_error($con));
 
-	require "employee_create_customer.php?=".$user_name;
+  require "employee_create_customer.php?=".$user_name;
 }
 
 ?>
