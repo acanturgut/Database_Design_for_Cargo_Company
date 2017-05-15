@@ -1,13 +1,15 @@
 
 
-<?php $username = $_GET['username'];
+<?php
+
+$username = $_GET['username'];
 
 $emloyeeL = "<li class='active'><a href='employee_account.php?username=".$username."'>Home</a></li>";
 $emloyeeLink = "<li><a href='employee_create_customer.php?username=".$username."'>Create Customer</a></li>";
 $emloyeeLink1 = "<li><a href='employee_create_shipment.php?username=".$username."'>Create new shipment</a></li>";
 $emloyeeLink2 = "<li><a href='employee_create_bill.php?username=".$username."'>Generate Bill</a></li>";
 
-$emloyeeLink3 = "<form method='POST' action='op_emloyee_create_customer.php?=".$username."'>";
+$emloyeeLink3 = "<form method='POST' action='op_emloyee_create_customer.php?username=".$username."'>";
 
 ?>
 
@@ -114,7 +116,7 @@ $emloyeeLink3 = "<form method='POST' action='op_emloyee_create_customer.php?=".$
 
       <div class="form-group">
         <label for="sel1">Select Store Location:</label>
-        <select class="form-control" id="sel1">
+        <select class="form-control" id="sel1" name="c_store_location">
           <option>1-Paris</option>
           <option>2-Helsinki</option>
           <option>3-Berlin</option>

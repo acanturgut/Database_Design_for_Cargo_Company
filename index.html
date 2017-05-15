@@ -2,7 +2,7 @@
 
 Main Tasks:
 
-Customers should be able to authenticate themselves as users of the system through a login page, asking for their username and password.
+(DONE) Customers should be able to authenticate themselves as users of the system through a login page, asking for their username and password.
 Customers should be able to query information about their packages via a unique tracking number (e.g. whether it is delivered, the estimated date of arrival, date of shipment, cost, shipment details).
 Customers should be able to view their personal account information (their recorded name –first, middle, and last-, address, phone number, e-mail, shipment history, and shipments that have not delivered yet).
 Customers should be able to view their bills.
@@ -97,6 +97,26 @@ Find the city that has received the most packages.
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
 
+      <hr>
+
+      <form method="POST" action = "qrun.php" >
+        <div class="form-group">
+          <br>
+          <label for="sel1">Query Informations</label>
+          <select class="form-control" id="sel1" name="query_info">
+            <option>Customer who has shipped the most packages in the last year.</option>
+            <option>Customer who has spent the most money on shipping last year.</option>
+            <option>Sorted List Customers with a contract according to the money that they have spent on shipping last year.</option>
+            <option>Customer that has sent the most hazardous packages.</option>
+            <option>Store that has received the most hazardous packages.</option>
+            <option>Frequently each store is used by customers for sending packages. Sort these stores from most to least frequently used store.</option>
+            <option>Store that has earned the most money from shipping packages.</option>
+            <option>Cities that ships the most and least number of the packages between April 20, 2013 and May 15, 2013.</option>
+            <option>City that has received the most packages.</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Run Query</button>
+      </form>
     </div>
   </div>
 
