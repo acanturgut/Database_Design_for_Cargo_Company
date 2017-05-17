@@ -1,5 +1,3 @@
-
-
 <?php
 
 $username = $_GET['username'];
@@ -109,7 +107,7 @@ $emloyeeLink3 = "<form method='POST' action='op_emloyee_create_customer.php?user
 
       <div class="checkbox">
         <label>
-          <input type="checkbox" value="" name="c_user_type">
+          <input type="checkbox" value="on" name="c_user_type">
           Is Customer Contracted ?
         </label>
       </div>

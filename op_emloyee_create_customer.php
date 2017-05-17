@@ -18,6 +18,11 @@ $c_phone_number = $_POST["c_phone_number"];
 $c_customer_type = $_POST["c_user_type"];
 $c_store_id = $_POST["c_store_location"];
 
+// Take ID
+
+$c_store_arr = explode("-",$c_store_id);
+$c_store_id = $c_store_arr[0];
+
 $sql = "insert into customer values(
 '$c_password',
 '$c_user_name',
@@ -40,7 +45,6 @@ if(mysqli_query($con,$sql)){
   //require "employee_create_customer.php?username=".$user_name;
 
 }else{
-
   echo "FAIL <hr> ";
   echo("Error description: " . mysqli_error($con));
 

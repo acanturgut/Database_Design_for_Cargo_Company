@@ -58,7 +58,6 @@ Find the cities that ships the most and least number of the packages between Apr
 Find the city that has received the most packages.
 
 -->
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -66,43 +65,41 @@ Find the city that has received the most packages.
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <title> die diesenbank</title>
-
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
 </head>
 <body>
-
   <br>
   <br>
-
   <div class="container">
-
-    <div class="jumbotron">
-
-      <h1> diesen Datenbank </h1>
-
-      <h2> Wir tragen, was du liebst :) </h2>
-
-      <hr>
-
-      <form method="POST" action = "auth.php" >
-        <fieldset class="form-group">
-          <label for="exampleInputEmail1">Username</label>
-          <input type="text" class="form-control" id="exampleInputEmail1" name="username" placeholder="Enter username">
-
-        </fieldset>
-        <fieldset class="form-group">
-          <label for="exampleInputPassword1">Password</label>
-          <input type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="Password">
-        </fieldset>
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
-
-      <hr>
-
+    <div style="background-color: #ffffff" class="jumbotron">
+      <div class="row">
+        <div class="col-xs-6 col-sm-4">
+        </div>
+        <div class="col-xs-6 col-sm-4">
+          <h3> diese Datenbank </h3>
+          <hr>
+          <form method="POST" action = "auth.php" >
+            <fieldset class="form-group">
+              <label for="exampleInputEmail1">Username</label>
+              <input type="text" class="form-control" id="exampleInputEmail1" name="username" placeholder="Enter username">
+            </fieldset>
+            <fieldset class="form-group">
+              <label for="exampleInputPassword1">Password</label>
+              <input type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="Password">
+            </fieldset>
+            <button type="submit" class="btn btn-primary">Log In</button>
+          </form>
+        </div>
+        <div class="col-xs-6 col-sm-4">
+        </div>
+      </div>
+      <br>
+      <br>
+      <br>
       <form method="POST" action = "qrun.php" >
         <div class="form-group">
           <br>
-          <label for="sel1">Query Informations</label>
+          <label for="sel1"><h4>Query Informations</h4></label>
           <select class="form-control" id="sel1" name="query_info">
             <option>Customer who has shipped the most packages in the last year.</option>
             <option>Customer who has spent the most money on shipping last year.</option>
@@ -115,11 +112,11 @@ Find the city that has received the most packages.
             <option>City that has received the most packages.</option>
           </select>
         </div>
+        <hr>
         <button type="submit" class="btn btn-primary">Run Query</button>
       </form>
     </div>
   </div>
-
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
 </body>
