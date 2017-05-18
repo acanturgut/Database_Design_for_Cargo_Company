@@ -14,8 +14,6 @@ if(!$con){
 
 }else{
 
-	echo "connection succed";
-	echo "<br> <hr>";
 }
 
 ?>

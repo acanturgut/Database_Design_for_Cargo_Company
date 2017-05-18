@@ -41,8 +41,6 @@ $emloyeeLink4 = "<li class='nav-item'><a class='nav-link' href='employee_check_t
 </nav>
   <hr>
   <br>
-
-
   <div class="container">
     <h3> Datenbank - Employee Page </h3>
     <h1>Welcome <?php echo $username ?> </h1>

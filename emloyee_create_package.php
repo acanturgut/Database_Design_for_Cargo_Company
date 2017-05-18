@@ -71,8 +71,11 @@ $emloyeeLink3 = "<form method='POST' action='op_emloyee_create_package.php?usern
     </div>
 
     <div class="form-group">
-      <label>Package Status</label>
-      <input name="p_status" type="text" class="form-control" placeholder="Package Status">
+      <label for="sel2">Package Status</label>
+      <select class="form-control" id="sel2" name="p_status">
+        <option>Delivered</option>
+        <option>Not Delivered</option>
+      </select>
     </div>
 
     <hr>
