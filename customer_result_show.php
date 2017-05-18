@@ -25,7 +25,7 @@ $customer2 = '<form method="POST" action="customer_result_show.php?username='.$u
           <?php  echo $customer1; ?>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">View Bills</a>
+          <?php echo '<a class="nav-link" href="customer_bill.php?username='.$username.'">View Bills</a>' ?>
         </li>
 
         <li class="nav-item">

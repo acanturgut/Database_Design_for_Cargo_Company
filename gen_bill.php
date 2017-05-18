@@ -49,21 +49,92 @@ $emloyeeLink4 = "<li class='nav-item'><a class='nav-link' href='employee_check_t
 
     include 'connect.php';
 
+    $todaysDate = date("Y-m-d");
+
+    $sql1 = "SELECT customer_type FROM customer WHERE ID=(SELECT c_id FROM shipment WHERE ID=".$shipmentID.")";
+    $result = $con->query($sql1);
+    $row = mysqli_fetch_assoc($result);
+    $myVar = $row['customer_type'];
+    if($myVar == "off"){
+      echo "<h1> Generated Bill - Only Once </h1><hr>";
+      echo "<h2> Shipment ID: $shipmentID </h2><hr>";
+      echo "<h2> Bill DATE: $todaysDate</h2><hr>";
+
+      $sql2 = "SELECT customer.first_name as c_f_n,customer.middle_name as c_m_n,customer.last_name as c_l_n,customer.street_name as c_s,customer.district as c_d,customer.city as c_c,customer.country as c_co,customer.phone_number as c_p,shipment.ID as tracking_number,count(package.shipment_id) as num_pack,store.street_name as s_s,store.district as s_d, store.city as s_c, store.country as s_co,shipment.price, package.p_date from customer join package join shipment join store where customer.ID=shipment.c_id and package.shipment_id=shipment.ID and store.ID=shipment.from_s_id AND shipment.ID=".$shipmentID." group by package.p_date";
+
+      $result = $con->query($sql2);
+      $row = mysqli_fetch_assoc($result);
+
+      $customer_name = $row['c_f_n']." ".$row['c_m_n']." ".$row['c_l_n'];
+      $customer_address = $row['c_s']." ".$row['c_d']." ".$row['c_c']." ".$row['c_co'];
+      $customer_phone = $row['c_p'];
+      $number_of_package = $row['num_pack'];
+      $store_address = $row['s_s']." ".$row['s_d']." ".$row['s_c']." ".$row['s_co'];
+      $price = $row['price'];
+      $date = $row['p_date'];
+
+      echo "<h5>Customer Name   : $customer_name </h5><hr>";
+      echo "<h5>Customer Address: $customer_address </h5><hr>";
+      echo "<h2> Shipments: </h2>";
+
+      echo "<table class='table'>
+        <thead>
+          <tr>
+            <th>Tracking Number</th>
+            <th>Number of Packages</th>
+            <th>Shipment Date</th>
+            <th>Shipmented From</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        <tbody>
+        <tr>";
+
+        echo "<td>".$shipmentID ."</td>";
+        echo "<td>".$number_of_package ."</td>";
+        echo "<td>".$date ."</td>";
+        echo "<td>".$store_address."</td>";
+        echo "<td>".$price ."</td><tr>";
+
+        echo " </tbody>
+         </table>";
+
+      $sql3 = "INSERT INTO bill (billing_date,ID) VALUES ('".$todaysDate."',NULL);";
+
+      if(mysqli_query($con,$sql3)){
+
+        echo "SUCCESS <hr> ";
+
+      }else{
+
+        echo("Error Creating Bill:" . mysqli_error($con)) . "<hr>";
+
+      }
+
+      $sql4 = "INSERT INTO bill_shipment(ID,b_id,s_id) VALUES (NULL,(SELECT max(ID) FROM bill),".$shipmentID.");";
+
+      if(mysqli_query($con,$sql4)){
+
+        echo "SUCCESS <hr> ";
+
+      }else{
+
+        echo("Error Creating Bill Phase 2: " . mysqli_error($con)) ."<hr>";
+
+      }
+
+      echo "<center><a href='employee_create_shipment.php?username=".$username."'> DONE </a></center>";
+
+    }else{
+
+
+
+      header("Location: employee_create_shipment.php?username=".$username);
+
+    }
     ?>
 
-    <h1> Generated Bill - Only Once </h1>
-    <h2> Shipment ID: <?php  echo $shipmentID; ?></h2>
-
-    <?php
-
-    
-
-
-
-
-
-
-     ?>
+    <?php    ?>
 
   </div>
 

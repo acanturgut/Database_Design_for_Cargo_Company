@@ -25,6 +25,7 @@ $customer2 = '<form method="POST" action="customer_result_show.php?username='.$u
         </li>
         <li class="nav-item">
           <?php echo '<a class="nav-link" href="customer_bill.php?username='.$username.'">View Bills</a>' ?>
+
         </li>
 
         <li class="nav-item">
@@ -44,15 +45,10 @@ $customer2 = '<form method="POST" action="customer_result_show.php?username='.$u
     <br>
 
     <div class="container">
-      <h3> Datenbank - Customer Page </h3>
-      <h1>Welcome <?php echo $username ?> </h1>
-      <h5>Select action from navigation bar.</h5>
-      <br>
-      <hr>
-      <p> You can track your shipment from search bar</p>
-      <hr>
-      <p> You can see your bills</p>
 
+      <h2> You can see your bills in this page</h2>
+
+      
 
 
 

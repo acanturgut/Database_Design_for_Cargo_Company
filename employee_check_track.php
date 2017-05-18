@@ -132,10 +132,6 @@ $emloyeeLink4 = "<li class='nav-item'><a class='nav-link' href='employee_check_t
 
         </tbody>
       </table>
-
-
-
-
   </div>
   <br>
   <hr>

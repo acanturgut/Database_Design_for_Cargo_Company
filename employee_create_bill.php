@@ -8,7 +8,7 @@ $emloyeeLink1 = "<li class='nav-item'><a class='nav-link' href='employee_create_
 $emloyeeLink2 = "<li class='nav-item'><a class='nav-link' href='employee_create_bill.php?username=".$username."'>Generate Bill</a></li>";
 $emloyeeLink4 = "<li class='nav-item'><a class='nav-link' href='employee_check_track.php?username=".$username."'>Tracking Store</a></li>";
 
-
+$emloyeeLink3 = "<form method='POST' action='op_emloyee_bill_generate.php?username=".$username."'>";
 ?>
 
 <!DOCTYPE html>
@@ -45,11 +45,39 @@ $emloyeeLink4 = "<li class='nav-item'><a class='nav-link' href='employee_check_t
 
   <div class="container">
 
+    <?php echo $emloyeeLink3; ?>
+
+    <div class="form-group">
+      <label for="sel1">Select User ID for Contracted Users to generate bill</label>
+      <select class="form-control" id="sel1" name="p_id">
+
+
+
     <?php
 
+    include 'connect.php';
 
+    $sql = "SELECT ID FROM customer WHERE customer_type='on'";
+    $result = $con->query($sql);
+
+    if ($result->num_rows > 0) {
+      while($row = $result->fetch_assoc()) {
+
+        echo "<option>".$row['ID']."</option>";
+
+      }
+    } else {
+
+    }
 
     ?>
+  </select>
+</div>
+
+    <hr>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
 
   </div>
 

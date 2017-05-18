@@ -2,10 +2,11 @@
 
 Main Tasks:
 
+Customers:
+
 (DONE) Customers should be able to authenticate themselves as users of the system through a login page, asking for their username and password.
 (DONE) Customers should be able to query information about their packages via a unique tracking number (e.g. whether it is delivered, the estimated date of arrival, date of shipment, cost, shipment details).
 (DONE) Customers should be able to view their personal account information (their recorded name –first, middle, and last-, address, phone number, e-mail, shipment history, and shipments that have not delivered yet).
-
 Customers should be able to view their bills.
 
 Employee:
@@ -15,9 +16,8 @@ Employee:
 (DONE) Employees can only see the shipments for which they are the source or the destination of.
 (DONE) Employees should be able to create accounts for the customers via a web interface.
 (DONE) Employees can change the status of a shipment by marking them as delivered.
-
 Employees should be able to generate a bill for each customer.
-The billing procedure for each customer depends on whether they have a contract or not (contracted: 1 month / regular: current shipment).
+(DONE) The billing procedure for each customer depends on whether they have a contract or not (contracted: 1 month / regular: current shipment).
 
 System:
 
@@ -33,7 +33,7 @@ Constraints:
 (DONE) Each user (customer or employee) should have a distinct username.
 (DONE) Each user should have a valid password which consists of at least 6 alphanumeric characters.
 (DONE) Each customer is associated with a unique customer ID.
-Some customers can have a contract with the company. In this case, they are billed monthly. Otherwise, customer will pay in the store at the time of shipment.
+(DONE) Some customers can have a contract with the company. In this case, they are billed monthly. Otherwise, customer will pay in the store at the time of shipment.
 (DONE) Each store has a unique ID.
 (DONE) Each store has only one employee but each employee is not necessarily associated with a store.
 (DONE) Each store has one address and may have one or more phone numbers.
