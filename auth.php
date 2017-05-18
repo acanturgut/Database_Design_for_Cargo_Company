@@ -16,15 +16,27 @@ if($username == "admin" && $password == "admin"){
 
 }else{
 
-
-
   $sql = 'SELECT password, username FROM employee';
-
-
 
   $result = $con -> query($sql);
 
+  if ($result->num_rows > 0) {
 
+    while($row = $result->fetch_assoc()) {
+
+      if($username == $row['username'] && $password == $row['password']){
+
+
+        header('Location: employee_account.php?username='.$username);
+
+        return;
+      }
+    }
+  }
+
+  $sql = 'SELECT password, username FROM customer';
+
+  $result = $con -> query($sql);
 
   if ($result->num_rows > 0) {
 
@@ -34,18 +46,17 @@ if($username == "admin" && $password == "admin"){
 
       if($username == $row['username'] && $password == $row['password']){
 
-        
-        header('Location: employee_account.php?username='.$username);
+
+        header('Location: customer_welcome_page.php?username='.$username);
 
         return;
       }
     }
-  }else{
-
-    header('Location: index.html');
-
-
   }
+
+  header('Location: index.html');
+
+
 }
 
 ?>

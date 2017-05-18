@@ -25,7 +25,7 @@ $s_store_arr2 = explode("-",$s_r_destination);
 $s_r_destination = $s_store_arr2[0];
 
 
-$sql ="INSERT INTO shipment (ID,s_shipment_time,c_id,from_s_id,to_s_id,r_first_name,r_middle_name,r_last_name,r_street,r_district,r_city,r_country,r_email,r_phone_number,price) VALUES (
+$sql ="INSERT INTO shipment (ID,s_time,c_id,from_s_id,to_s_id,r_first_name,r_middle_name,r_last_name,r_street,r_district,r_city,r_country,r_email,r_phone_number,price) VALUES (
 NULL,
 '$s_shipment_time',
 '$s_customer_ID',
