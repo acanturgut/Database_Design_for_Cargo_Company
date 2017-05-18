@@ -35,7 +35,7 @@ if(mysqli_query($con,$sql2)){
   echo "SUCCESS <hr> ";
   include "emloyee_create_package.php";
 
-  echo "<center><a href='gen_bill.php?shipment=$myVar&username=$username'>Generate Bill</a></center>";
+  echo "<center><a href='gen_bill.php?shipment=".$myVar."&username=$username'>Generate Bill</a></center>";
 
 }else{
   echo "FAIL <hr> ";

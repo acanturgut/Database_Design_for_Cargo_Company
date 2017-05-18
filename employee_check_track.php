@@ -8,8 +8,6 @@ $emloyeeLink1 = "<li class='nav-item'><a class='nav-link' href='employee_create_
 $emloyeeLink2 = "<li class='nav-item'><a class='nav-link' href='employee_create_bill.php?username=".$username."'>Generate Bill</a></li>";
 $emloyeeLink4 = "<li class='nav-item'><a class='nav-link' href='employee_check_track.php?username=".$username."'>Tracking Store</a></li>";
 
-$emloyeeLink3 = "<form method='POST' action='op_emloyee_update_statue.php?username=".$username."'>";
-
 ?>
 
 <!DOCTYPE html>
@@ -44,52 +42,103 @@ $emloyeeLink3 = "<form method='POST' action='op_emloyee_update_statue.php?userna
   <hr>
   <br>
   <div class="container">
-    <h3> Datenbank - Employee Page </h3>
-    <h1>Welcome <?php echo $username ?> </h1>
-    <p>Select action from navigation bar.</p>
 
-  <br>
-  <hr>
+    <h1> Sending...</h1>
 
-  <?php echo $emloyeeLink3; ?>
+    <?php
 
-  <div class="form-group">
-    <label for="sel1">Package Type</label>
-    <select class="form-control" id="sel1" name="p_id">
+    include 'connect.php';
+
+
+    $sql2 = "SELECT * FROM package WHERE shipment_id IN (SELECT ID FROM shipment WHERE from_s_id=(SELECT ID FROM store WHERE ID = (SELECT s_id FROM work WHERE e_id=(SELECT ID FROM employee WHERE username='".$username."'))))";
+    $result = $con->query($sql2);
+
+    ?>
+
+    <table class="table">
+      <thead>
+        <tr>
+
+          <th>Pack Date</th>
+          <th>Pack Size</th>
+          <th>Pack Type</th>
+          <th>Pack Statue</th>
+          <th>Pack Weight</th>
+          <th>Shipment ID</th>
+          <th>Shipment Type</th>
+          <th>EST</th>
+
+        </tr>
+      </thead>
+      <tbody>
+
+        <?php
+
+        if ($result->num_rows > 0) {
+
+          while($row = $result->fetch_assoc()) {
+            echo "<tr><td> " . $row["p_date"]. "</td><td>" . $row["size"]. "</td><td>" . $row["pack_type"]. "</td><td>". $row['statue']."</td><td>". $row["weight"]."</td><td>". $row['shipment_id']."</td><td>". $row['shipment']."</td><td>". $row['e_delivery_date']."</td></tr>";
+          }
+        } else {
+          echo "0 results";
+        }
+
+        ?>
+
+      </tbody>
+    </table>
+
+      <h1> Coming Packages...</h1>
 
       <?php
 
-        include 'connect.php';
+      include 'connect.php';
 
-        $sql = "SELECT ID FROM package WHERE shipment_id IN (SELECT ID FROM shipment WHERE to_s_id = (SELECT s_id FROM work WHERE e_id = (SELECT ID FROM employee WHERE username='".$username."')));";
-        $result = $con->query($sql);
 
-        if ($result->num_rows > 0) {
-          while($row = $result->fetch_assoc()) {
+      $sql2 = "SELECT * FROM package WHERE shipment_id IN (SELECT ID FROM shipment WHERE to_s_id=(SELECT ID FROM store WHERE ID = (SELECT s_id FROM work WHERE e_id=(SELECT ID FROM employee WHERE username='".$username."'))))";
+      $result = $con->query($sql2);
 
-            echo "<option>".$row['ID']."</option>";
+      ?>
 
+      <table class="table">
+        <thead>
+          <tr>
+
+            <th>Pack Date</th>
+            <th>Pack Size</th>
+            <th>Pack Type</th>
+            <th>Pack Statue</th>
+            <th>Pack Weight</th>
+            <th>Shipment ID</th>
+            <th>Shipment Type</th>
+            <th>EST</th>
+
+          </tr>
+        </thead>
+        <tbody>
+
+          <?php
+
+          if ($result->num_rows > 0) {
+
+            while($row = $result->fetch_assoc()) {
+              echo "<tr><td> " . $row["p_date"]. "</td><td>" . $row["size"]. "</td><td>" . $row["pack_type"]. "</td><td>". $row['statue']."</td><td>". $row["weight"]."</td><td>". $row['shipment_id']."</td><td>". $row['shipment']."</td><td>". $row['e_delivery_date']."</td></tr>";
+            }
+          } else {
+            echo "0 results";
           }
-        } else {
-        }
-       ?>
 
-    </select>
+          ?>
+
+        </tbody>
+      </table>
+
+
+
+
   </div>
-
-  <div class="form-group">
-    <label for="sel1">Package Status</label>
-    <select class="form-control" id="sel1" name="p_status">
-      <option>Delivered</option>
-      <option>Not Delivered</option>
-    </select>
-  </div>
-
+  <br>
   <hr>
-
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
-</div>
 
 </body>
 </html>

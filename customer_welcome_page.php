@@ -3,7 +3,7 @@
 $username = $_GET['username'];
 
 $customer1 = '<a class="nav-link" href="customer_personal_info.php?username='.$username.'">Personal Info</a>';
-
+$customer2 = '<form method="POST" action="customer_result_show.php?username='.$username.'" class="form-inline navbar-form pull-right">';
 ?>
 
 <!DOCTYPE html>
@@ -35,8 +35,8 @@ $customer1 = '<a class="nav-link" href="customer_personal_info.php?username='.$u
           <p> </p>
         </li>
       </ul>
-      <form class="form-inline navbar-form pull-right">
-        <input class="form-control" type="text" placeholder="YOUR SHIPMENT'S ID">
+        <?php echo $customer2 ?>
+        <input name="shipment_id" class="form-control" type="text" placeholder="YOUR SHIPMENT'S ID">
         <button class="btn btn-success-outline" type="submit">Search</button>
       </form>
     </nav>
@@ -52,6 +52,11 @@ $customer1 = '<a class="nav-link" href="customer_personal_info.php?username='.$u
       <p> You can track your shipment from search bar</p>
       <hr>
       <p> You can see your bills</p>
+
+
+
+
+
 
     </div>
     <br>
