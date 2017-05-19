@@ -48,13 +48,12 @@ $emloyeeLink3 = "<form method='POST' action='op_emloyee_update_statue.php?userna
     <h1>Welcome <?php echo $username ?> </h1>
     <p>Select action from navigation bar.</p>
 
-  <br>
   <hr>
 
   <?php echo $emloyeeLink3; ?>
 
   <div class="form-group">
-    <label for="sel1">Package Type</label>
+    <label for="sel1">Package ID</label>
     <select class="form-control" id="sel1" name="p_id">
 
       <?php

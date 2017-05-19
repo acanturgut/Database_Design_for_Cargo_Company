@@ -42,13 +42,13 @@ NULL,
 if(mysqli_query($con,$sql)){
 
   echo "SUCESS <hr> ";
-  //require "employee_create_customer.php?username=".$user_name;
+  header("Location: employee_create_customer.php?username=".$username);
 
 }else{
   echo "FAIL <hr> ";
   echo("Error description: " . mysqli_error($con));
 
-  //require "employee_create_customer.php?username=".$user_name;
+  header("Location: employee_create_customer.php?username=".$username);
 }
 
 ?>

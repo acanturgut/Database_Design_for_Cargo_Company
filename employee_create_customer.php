@@ -108,11 +108,12 @@ $emloyeeLink3 = "<form method='POST' action='op_emloyee_create_customer.php?user
         <input name="c_phone_number" type="text" class="form-control" placeholder="Enter Phone Number">
       </div>
 
-      <div class="checkbox">
-        <label>
-          <input type="checkbox" value="on" name="c_user_type">
-          Is Customer Contracted ?
-        </label>
+      <div class="form-group">
+        <label for="sel1">Is Customer Contracted:</label>
+        <select class="form-control" id="sel1" name="c_user_type">
+          <option>on</option>
+          <option>off</option>
+        </select>
       </div>
 
       <div class="form-group">
