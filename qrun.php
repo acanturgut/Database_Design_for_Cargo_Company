@@ -13,6 +13,8 @@ include 'index.html';
 
   if($queryInfo == "Customer who has shipped the most packages in the last year."){
 
+    echo "Customer who has shipped the most packages in the last year.<hr>";
+
     $sql = "SELECT * FROM customer WHERE ID IN (SELECT c_id FROM (SELECT c_id, count(c_id) AS num_ship FROM shipment WHERE ID IN (SELECT shipment_id FROM package WHERE year(p_date)=2016) GROUP BY c_id) AS T WHERE num_ship IN (SELECT max(number) FROM (SELECT count(c_id)  AS number FROM shipment WHERE ID IN (SELECT shipment_id FROM package where year(p_date)=2016) GROUP BY c_id) as S));";
 
     $result = $con -> query($sql);
@@ -28,6 +30,8 @@ include 'index.html';
 
   }else if($queryInfo == "Customer who has spent the most money on shipping last year."){
 
+    echo "Customer who has spent the most money on shipping last year.<hr>";
+
     $sql = "SELECT * FROM customer WHERE ID IN (SELECT ID FROM V WHERE sum_price = (SELECT max(sum_price) FROM V));";
 
     $result = $con -> query($sql);
@@ -42,6 +46,8 @@ include 'index.html';
     }
 
   }else if($queryInfo == "Sorted List Customers with a contract according to the money that they have spent on shipping last year."){
+
+    echo "Sorted List Customers with a contract according to the money that they have spent on shipping last year.<hr>";
 
     $sql = "SELECT c_id as customer_id, sum(price) as sum_price FROM shipment WHERE c_id IN (SELECT ID FROM customer WHERE customer_type='on') AND ID IN (SELECT shipment_id FROM package WHERE year(p_date)=2016) GROUP BY c_id ORDER BY sum_price DESC;";
 
@@ -59,6 +65,8 @@ include 'index.html';
 
   }else if($queryInfo == "Customer that has sent the most hazardous packages."){
 
+    echo "Customer that has sent the most hazardous packages.<hr>";
+
     $sql = 'SELECT * FROM customer WHERE ID IN (SELECT c_id as ID FROM shipment WHERE ID IN (SELECT shipment_id FROM (SELECT shipment_id, count(pack_type) AS c FROM package WHERE pack_type="hazardous" GROUP BY shipment_id) AS T WHERE c IN (SELECT max(c) FROM (select shipment_id, count(pack_type) AS c FROM package WHERE pack_type="hazardous" GROUP BY shipment_id) AS T)))';
 
     $result = $con -> query($sql);
@@ -73,6 +81,8 @@ include 'index.html';
 
   }else if($queryInfo == "Store that has received the most hazardous packages."){
 
+    echo "Store that has received the most hazardous packages.<hr>";
+
     $sql = 'SELECT * FROM store WHERE ID IN (SELECT to_s_id AS ID FROM shipment WHERE ID IN (SELECT shipment_id FROM (SELECT shipment_id, count(pack_type) AS c FROM package WHERE pack_type="hazardous" GROUP BY shipment_id) AS T WHERE c IN (SELECT max(c) FROM (SELECT shipment_id, count(pack_type) AS c FROM package WHERE pack_type="hazardous" GROUP BY shipment_id) AS T)))';
 
     $result = $con -> query($sql);
@@ -86,6 +96,8 @@ include 'index.html';
     }
 
   }else if($queryInfo == "Frequently each store is used by customers for sending packages. Sort these stores from most to least frequently used store."){
+
+    echo "Frequently each store is used by customers for sending packages. Sort these stores from most to least frequently used store.<hr>";
 
     $sql = 'SELECT from_s_id, count(*) AS frequency FROM shipment GROUP BY from_s_id ORDER BY count(*) DESC';
 
@@ -102,6 +114,8 @@ include 'index.html';
 
   }else if($queryInfo == "Store that has earned the most money from shipping packages."){
 
+    echo "Store that has earned the most money from shipping packages.<hr>";
+
     $sql = 'SELECT * FROM store WHERE ID IN (SELECT S.from_s_id FROM (SELECT from_s_id, sum(price) AS sum_price FROM shipment GROUP BY from_s_id) AS S WHERE S.sum_price=(SELECT max(sum_price) as max_price FROM (SELECT sum(price) AS sum_price FROM shipment GROUP BY from_s_id) AS S))';
 
     $result = $con -> query($sql);
@@ -115,6 +129,8 @@ include 'index.html';
     }
 
   }else if($queryInfo == "Cities that ships the most and least number of the packages between April 20, 2013 and May 15, 2013."){
+
+    echo "Cities that ships the most and least number of the packages between April 20, 2013 and May 15, 2013<hr>";
 
     echo "<h2> MOST </h2> <hr>";
 
@@ -145,6 +161,8 @@ include 'index.html';
     }
 
   }else if($queryInfo == "City that has received the most packages."){
+
+    echo "City that has received the most packages. <hr>";
 
     $sql = 'SELECT city FROM A WHERE total_pack = (SELECT max(total_pack) FROM A)';
 
